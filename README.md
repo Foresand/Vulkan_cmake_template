@@ -7,5 +7,6 @@ you should put you code in the src folder, then run in bash under Vulkan_templat
 rmdir build
 cmake -B build -G "MinGW Makefiles"
 cmake --build build
+build/LearnVK
 ```
 
