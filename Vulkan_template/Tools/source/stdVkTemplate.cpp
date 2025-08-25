@@ -734,31 +734,31 @@ void stdVkTemplate::recordCommandBuffer(VkCommandBuffer commandBuffer,uint32_t i
 }
 
 void stdVkTemplate::cleanup() {
-        for(size_t i=0;i<MAX_FRAMES_IN_FLIGHT;i++){
-            vkDestroySemaphore(this->device,this->renderFinishedSemaphores[i],nullptr);
-            vkDestroySemaphore(this->device,this->imageAvailableSemaphores[i],nullptr);
-            vkDestroyFence(this->device,this->inFlightFences[i],nullptr);
-        }
-        vkDestroyCommandPool(this->device,this->commandPool,nullptr);
-        for(auto framebuffer:this->swapChainFramebuffers){
-            vkDestroyFramebuffer(this->device,framebuffer,nullptr);
-        }
-        vkDestroyPipeline(this->device,this->graphicsPipeline,nullptr);
-        vkDestroyPipelineLayout(this->device,this->pipelineLayout,nullptr);
-        vkDestroyRenderPass(this->device,this->renderPass,nullptr);
-        for(auto imageView:this->swapChainImageViews){
-            vkDestroyImageView(this->device,imageView,nullptr);
-        }
-        vkDestroySwapchainKHR(this->device, this->swapChain,nullptr);
-        vkDestroyDevice(this->device,nullptr);
-        if (enableValidationLayers) {
-            this->DestroyDebugUtilsMessengerEXT(this->instance, this->debugMessenger, nullptr);
-        }
-        vkDestroySurfaceKHR(this->instance,this->surface,nullptr);
-
-        vkDestroyInstance(this->instance, nullptr);
-
-        glfwDestroyWindow(this->window);
-
-        glfwTerminate();
+    for(size_t i=0;i<MAX_FRAMES_IN_FLIGHT;i++){
+        vkDestroySemaphore(this->device,this->renderFinishedSemaphores[i],nullptr);
+        vkDestroySemaphore(this->device,this->imageAvailableSemaphores[i],nullptr);
+        vkDestroyFence(this->device,this->inFlightFences[i],nullptr);
     }
+    vkDestroyCommandPool(this->device,this->commandPool,nullptr);
+    for(auto framebuffer:this->swapChainFramebuffers){
+        vkDestroyFramebuffer(this->device,framebuffer,nullptr);
+    }
+    vkDestroyPipeline(this->device,this->graphicsPipeline,nullptr);
+    vkDestroyPipelineLayout(this->device,this->pipelineLayout,nullptr);
+    vkDestroyRenderPass(this->device,this->renderPass,nullptr);
+    for(auto imageView:this->swapChainImageViews){
+        vkDestroyImageView(this->device,imageView,nullptr);
+    }
+    vkDestroySwapchainKHR(this->device, this->swapChain,nullptr);
+    vkDestroyDevice(this->device,nullptr);
+    if (enableValidationLayers) {
+        this->DestroyDebugUtilsMessengerEXT(this->instance, this->debugMessenger, nullptr);
+    }
+    vkDestroySurfaceKHR(this->instance,this->surface,nullptr);
+
+    vkDestroyInstance(this->instance, nullptr);
+
+    glfwDestroyWindow(this->window);
+
+    glfwTerminate();
+}
