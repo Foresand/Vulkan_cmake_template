@@ -1,5 +1,4 @@
 #include<iostream>
-#include<func.h>
 #include<stdVkTemplate.h>
 
 int main(){
